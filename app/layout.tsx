@@ -17,8 +17,8 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "MAISON | Luxury Essentials",
-  description: "Timeless elegance, modern refinement. Discover our curated collection of luxury essentials.",
+  title: "KHULOOD | Contemporary Luxury Fashion",
+  description: "A bespoke clothing label redefining custom and ready-to-wear fashion. Discover our elegant collections inspired by Omani heritage.",
   generator: "v0.app",
   icons: {
     icon: [
