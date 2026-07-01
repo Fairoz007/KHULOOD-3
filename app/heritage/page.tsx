@@ -7,53 +7,6 @@ import { PremiumFooter } from "@/components/premium-footer"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
-const timeline = [
-  {
-    year: "Early Years",
-    title: "A Passion for Design",
-    description:
-      "Founded by Khulood, whose passion for design began at an early age, the brand was shaped through years of creativity, exploration, and dedication.",
-  },
-  {
-    year: "Education",
-    title: "Vision & Heritage",
-    description:
-      "After earning a Bachelor's Degree in Fashion Design from Virginia Commonwealth University School of the Arts in Qatar, Khulood returned to Oman with a vision to create a luxury fashion label.",
-  },
-  {
-    year: "2020",
-    title: "The Launch",
-    description:
-      "Following more than a year of research, refinement, and development, KHULOOD officially launched, celebrating Omani heritage through modern design.",
-  },
-  {
-    year: "Today",
-    title: "Contemporary Elegance",
-    description:
-      "Today, the brand is recognized for its elegant contemporary collections that have been worn by distinguished clients across Oman and the GCC.",
-  },
-]
-
-const values = [
-  {
-    title: "Craftsmanship",
-    description:
-      "We believe true luxury is created through craftsmanship, authenticity, and meticulous attention to detail.",
-    image: "/artisan-hands-crafting-leather-luxury-goods.jpg",
-  },
-  {
-    title: "Local Atelier",
-    description:
-      "Every KHULOOD garment is handcrafted in our local atelier using carefully selected premium materials, preserving traditional artistry.",
-    image: "/premium-leather-material-sustainable-luxury.jpg",
-  },
-  {
-    title: "Cultural Heritage",
-    description:
-      "Our mission is to create timeless pieces that celebrate individuality, confidence, and Omani cultural heritage.",
-    image: "/minimalist-luxury-handbag-timeless-design.jpg",
-  },
-]
 
 const testimonials = [
   {
@@ -110,106 +63,74 @@ export default function HeritagePage() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-serif text-5xl md:text-6xl lg:text-7xl text-background mb-6 leading-[1.1] text-balance"
           >
-            Our Story
+            The story behind
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-background/80 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed"
+            className="text-background/80 text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed uppercase tracking-[0.2em]"
           >
-            Where Heritage Meets Contemporary Design. Fashion has always been more than clothing—it is an expression of identity, culture, and artistry.
+            KHULOOD
           </motion.p>
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* About */}
       <section className="py-20 lg:py-32 bg-muted">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16 lg:mb-24"
+            className="mb-12"
           >
-            <span className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4 block">Our Journey</span>
-            <h2 className="font-serif text-3xl lg:text-5xl">A Legacy of Excellence</h2>
+            <span className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4 block">About</span>
+            <h2 className="font-serif text-3xl lg:text-5xl mb-12">KHULOOD</h2>
+            <div className="space-y-8 text-muted-foreground text-lg leading-relaxed text-left md:text-center">
+              <p>
+                A passionate and incredibly talented artist, Khulood was passionate about the arts from a young age. After completing a Bachelor's in Fashion Design, at Virginia Commonwealth University School of the Arts in Qatar, Khulood returned to Oman.
+              </p>
+              <p>
+                After more than a year of exploring, developing, and planning – KHULOOD officially launched at the beginning of 2020. The contemporary and elegant designs represent Khulood's own sense of style and are deeply inspired by Omani heritage. The innovative designs have since been worn, locally and regionally, by multiple performers, influencers, and members of the royal family.
+              </p>
+            </div>
           </motion.div>
-
-          <div className="relative">
-            {/* Timeline line - hidden on mobile */}
-            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-border" />
-
-            {timeline.map((item, index) => (
-              <motion.div
-                key={item.year}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`relative flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-12 mb-12 lg:mb-16 ${
-                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                }`}
-              >
-                {/* Content */}
-                <div className={`flex-1 ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}>
-                  <span className="font-serif text-3xl lg:text-4xl text-muted-foreground/50 block mb-2">
-                    {item.year}
-                  </span>
-                  <h3 className="font-serif text-xl lg:text-2xl mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm lg:text-base">{item.description}</p>
-                </div>
-
-                {/* Dot - hidden on mobile */}
-                <div className="hidden lg:block relative z-10">
-                  <div className="w-4 h-4 bg-foreground" />
-                </div>
-
-                {/* Spacer for alternating layout */}
-                <div className="hidden lg:block flex-1" />
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Values Section - converted to Next.js Image with lazy loading */}
+      {/* Vision Section */}
       <section className="py-20 lg:py-32 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16 lg:mb-24"
-          >
-            <span className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4 block">Our Philosophy</span>
-            <h2 className="font-serif text-3xl lg:text-5xl">Guiding Principles</h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {values.map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="aspect-[5/6] overflow-hidden mb-6 relative">
-                  <Image
-                    src={value.image || "/placeholder.svg"}
-                    alt={value.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    loading="lazy"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <h3 className="font-serif text-xl lg:text-2xl mb-3">{value.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm lg:text-base">{value.description}</p>
-              </motion.div>
-            ))}
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="lg:w-1/2"
+            >
+              <span className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-4 block">Our Vision</span>
+              <h2 className="font-serif text-3xl lg:text-4xl xl:text-5xl mb-8 leading-tight">Creating contemporary and elegant collections inspired by Omani heritage that remain timeless.</h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                All of our products are handmade in our local atelier.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="lg:w-1/2 w-full aspect-[4/5] relative overflow-hidden"
+            >
+              <Image
+                src="/hand_embroidery_craftsmanship_1782933538223.png"
+                alt="Hand embroidered pieces with extraordinary craftsmanship"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -265,14 +186,9 @@ export default function HeritagePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="font-serif text-2xl lg:text-4xl leading-relaxed mb-8 text-balance">
-              "We believe true luxury is created through craftsmanship, authenticity, and attention to detail. Every KHULOOD garment is a celebration of individuality and cultural heritage."
+            <p className="font-serif text-2xl lg:text-4xl leading-relaxed text-balance italic text-foreground/90">
+              "hand embroidered pieces with extraordinary craftsmanship"
             </p>
-            <cite className="not-italic">
-              <span className="block text-sm tracking-[0.2em] uppercase text-muted-foreground">
-                — Khulood, Founder & Creative Director
-              </span>
-            </cite>
           </motion.blockquote>
         </div>
       </section>

@@ -113,7 +113,7 @@ export default function ShopPage() {
                       <h3 className="font-serif text-lg group-hover:underline underline-offset-4 transition-all">
                         {product.name}
                       </h3>
-                      <p className="text-sm text-muted-foreground">€{product.price.toLocaleString()}</p>
+                      <p className="text-sm text-muted-foreground">${product.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     </div>
                   </Link>
                 </motion.div>
@@ -123,20 +123,36 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* Heritage CTA */}
-      <section className="border-t border-muted py-16 md:py-24">
+      {/* Customer Experience */}
+      <section className="border-t border-muted py-16 md:py-24 bg-foreground text-background">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="font-serif text-3xl md:text-5xl mb-16">Customer experience</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+            <blockquote className="space-y-4">
+              <p className="text-lg md:text-xl leading-relaxed text-background/90 font-serif italic">
+                “The delivery process was so smooth and the abaya I recieved was stunning. The whole experience exceeded my expectations."
+              </p>
+            </blockquote>
+            <blockquote className="space-y-4">
+              <p className="text-lg md:text-xl leading-relaxed text-background/90 font-serif italic">
+                “Unmatched and impeccably crafted tailoring. Absolutely love every drop!"
+              </p>
+            </blockquote>
+            <blockquote className="space-y-4">
+              <p className="text-lg md:text-xl leading-relaxed text-background/90 font-serif italic">
+                “I especially love the designs with the embroidered collar and folded sleeves!". Every collection is just stunning.
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      {/* Bespoke Message */}
+      <section className="py-16 md:py-24 bg-muted">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl mb-6">Crafted with Purpose</h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Every piece in our collection carries forward a legacy of Italian craftsmanship spanning over 175 years.
-          </p>
-          <Link
-            href="/heritage"
-            className="inline-flex items-center gap-2 text-sm tracking-widest uppercase border-b border-foreground pb-1 hover:gap-4 transition-all duration-300"
-          >
-            Discover Our Heritage
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <h2 className="font-serif text-2xl md:text-4xl text-foreground">
+            A bespoke clothing label redefining custom and ready-to-wear fashion
+          </h2>
         </div>
       </section>
 

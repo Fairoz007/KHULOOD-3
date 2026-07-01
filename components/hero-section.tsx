@@ -37,7 +37,7 @@ export function HeroSection() {
         </div>
 
         {/* Content overlay */}
-        <div className="relative z-10 h-full flex flex-col justify-end p-8 lg:p-16 pb-24 lg:pb-32">
+        <div className="relative z-10 h-full flex flex-col justify-center p-8 lg:p-16 py-24 lg:py-32">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
