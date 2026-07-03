@@ -35,24 +35,24 @@ export default function ShopPage() {
     <main className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Editorial Hero (70vh) */}
-      <section className="relative h-[70vh] min-h-[600px] flex flex-col md:flex-row overflow-hidden bg-background">
-        <div className="flex-1 flex items-center justify-center p-8 md:p-16 z-10 lg:pl-[10%]">
+      {/* Editorial Hero */}
+      <section className="relative flex flex-col md:flex-row bg-background">
+        <div className="flex-1 flex items-center justify-center p-8 pt-24 md:p-16 z-10 lg:pl-[10%] min-h-[50vh] md:min-h-[600px] md:h-[70vh]">
           <motion.div 
             className="max-w-xl w-full"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="text-xs uppercase tracking-[0.2em] text-primary mb-6">New Collection</p>
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl mb-8 text-foreground leading-[1.1] tracking-tight">
+            <p className="text-xs uppercase tracking-[0.2em] text-primary mb-4 md:mb-6">New Collection</p>
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 md:mb-8 text-foreground leading-[1.1] tracking-tight">
               Timeless Elegance,<br />
               <span className="italic font-light text-foreground/90">Modern Heritage</span>
             </h1>
-            <p className="text-lg text-foreground/70 mb-12 leading-relaxed font-sans font-light max-w-md">
+            <p className="text-base sm:text-lg text-foreground/70 mb-8 md:mb-12 leading-relaxed font-sans font-light max-w-md">
               Discover handcrafted Omani abayas designed with exceptional craftsmanship, contemporary silhouettes, and timeless elegance.
             </p>
-            <Link href="#collection" className="group relative border border-foreground/30 px-10 py-4 text-xs tracking-[0.2em] uppercase overflow-hidden hover:border-primary transition-colors duration-500 inline-block">
+            <Link href="#collection" className="group relative border border-foreground/30 px-8 py-3 md:px-10 md:py-4 text-xs tracking-[0.2em] uppercase overflow-hidden hover:border-primary transition-colors duration-500 inline-block">
               <span className="relative z-10 text-foreground group-hover:text-primary transition-colors duration-500 flex items-center gap-2">
                 Shop Collection <span className="text-lg">→</span>
               </span>
@@ -60,7 +60,7 @@ export default function ShopPage() {
             </Link>
           </motion.div>
         </div>
-        <div className="flex-1 relative h-full">
+        <div className="flex-1 relative min-h-[400px] md:min-h-[600px] md:h-[70vh] w-full">
           {/* Museum-inspired styling with warm architectural background */}
           <div className="absolute inset-0 bg-[#E2DCD3] z-0" />
           <motion.div 
