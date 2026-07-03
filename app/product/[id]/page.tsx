@@ -103,7 +103,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       <Navigation />
 
       {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-6 pt-24 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-32 pb-8">
         <nav className="flex items-center gap-2 text-sm text-muted-foreground">
           <Link href="/" className="hover:text-foreground transition-colors">
             Home
@@ -122,8 +122,8 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       </div>
 
       {/* Product Section */}
-      <section className="max-w-7xl mx-auto px-6 pb-16 md:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 md:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-16">
           {/* Gallery */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}

@@ -99,7 +99,7 @@ export function Navigation() {
                   alt="KHULOOD" 
                   width={140} 
                   height={40} 
-                  className="h-5 lg:h-6 w-auto object-contain transition-all duration-500"
+                  className="h-4 sm:h-5 md:h-6 lg:h-7 w-auto object-contain transition-all duration-500"
                   priority
                 />
               </Link>
@@ -132,16 +132,16 @@ export function Navigation() {
               </div>
 
               {/* Right icons */}
-              <div className="flex items-center gap-2 lg:gap-4">
-              <div ref={searchContainerRef} className="relative hidden sm:flex items-center">
+              <div className="flex items-center gap-1 sm:gap-2 lg:gap-4">
+              <div ref={searchContainerRef} className="relative flex items-center">
                 <AnimatePresence>
                   {isSearchOpen && (
                     <motion.div
                       initial={{ width: 0, opacity: 0 }}
-                      animate={{ width: 200, opacity: 1 }}
+                      animate={{ width: 160, opacity: 1 }}
                       exit={{ width: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
+                      className="overflow-hidden sm:!w-[200px]"
                     >
                       <input
                         ref={searchInputRef}

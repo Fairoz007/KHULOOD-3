@@ -26,12 +26,12 @@ export function PremiumFooter() {
         {/* Main footer content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-24">
           {/* Join our community */}
-          <div className="lg:col-span-1 pr-8">
+          <div className="lg:col-span-1 lg:pr-8 text-center lg:text-left">
             <h3 className="font-serif text-2xl mb-6 tracking-wide">Join Our Community</h3>
             <p className="text-[#F8F6F3]/60 text-sm mb-8 leading-relaxed font-light">
               Subscribe and be the first to know about new products, special offers, and more.
             </p>
-            <div className="flex items-center gap-6 text-[#B08A5A]">
+            <div className="flex items-center justify-center lg:justify-start gap-6 text-[#B08A5A]">
               <a href="https://www.instagram.com/khuloodofficial/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-[#F8F6F3] transition-colors" aria-label="Instagram">
                 <Instagram className="h-5 w-5 stroke-[1.5]" />
               </a>
@@ -42,7 +42,7 @@ export function PremiumFooter() {
           </div>
 
           {/* Quick links */}
-          <div>
+          <div className="text-center lg:text-left">
             <h4 className="text-xs tracking-[0.2em] font-medium uppercase mb-8 text-[#B08A5A]">Quick Links</h4>
             <ul className="space-y-4">
               {footerLinks.quickLinks.map((link) => (
@@ -56,7 +56,7 @@ export function PremiumFooter() {
           </div>
 
           {/* Customer Care links */}
-          <div>
+          <div className="text-center lg:text-left">
             <h4 className="text-xs tracking-[0.2em] font-medium uppercase mb-8 text-[#B08A5A]">Customer Care</h4>
             <ul className="space-y-4">
               {footerLinks.customerCare.map((link) => (
@@ -70,7 +70,7 @@ export function PremiumFooter() {
           </div>
 
           {/* 10% Off */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 text-center lg:text-left">
             <h3 className="font-serif text-3xl mb-4 tracking-wide text-[#B08A5A]">10% Off First Order</h3>
             <p className="text-[#F8F6F3]/60 text-sm mb-8 leading-relaxed font-light">
               Subscribe to our newsletter to receive your discount.
@@ -90,7 +90,7 @@ export function PremiumFooter() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-[#B08A5A]/30 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-xs text-[#F8F6F3]/50 font-light tracking-wide">
+          <div className="text-xs text-[#F8F6F3]/50 font-light tracking-wide text-center md:text-left">
             © 2025 KHULOOD
           </div>
 
@@ -98,7 +98,7 @@ export function PremiumFooter() {
             <div className="w-2 h-2 bg-[#B08A5A]" />
           </div>
 
-          <div className="text-xs text-[#F8F6F3]/50 font-light tracking-wide">
+          <div className="text-xs text-[#F8F6F3]/50 font-light tracking-wide text-center md:text-right">
             Designed in Oman • Crafted with Care
           </div>
         </div>

@@ -11,12 +11,12 @@ export function HeroSection() {
     <section className="relative min-h-screen flex">
       {/* Left content - Premium Sidebar */}
       <div className="hidden lg:flex flex-col justify-between items-center w-[22%] bg-[#0B0B0B] text-[#B08A5A] py-20 px-6 relative z-20 shadow-2xl">
-        
+
         {/* Soft linen texture overlay (simulated with CSS blend modes) */}
         <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
 
         {/* TOP */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
@@ -31,13 +31,13 @@ export function HeroSection() {
         </motion.div>
 
         {/* CENTER */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 1, ease: "easeOut" }}
           className="flex flex-col items-center text-center gap-5 relative z-10"
         >
-          <span className="text-[9px] tracking-[0.4em] uppercase opacity-70">EST. 2026</span>
+          <span className="text-[9px] tracking-[0.4em] uppercase opacity-70">EST. 2020</span>
           <h2 className="font-serif text-2xl lg:text-3xl tracking-[0.2em] font-light">KHULOOD</h2>
           <div className="w-6 h-[0.5px] bg-[#B08A5A]/60 my-2" />
           <p className="text-[9px] leading-[2.2] tracking-[0.15em] uppercase opacity-70 max-w-[160px]">
@@ -48,16 +48,16 @@ export function HeroSection() {
         </motion.div>
 
         {/* BOTTOM */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center gap-10 relative z-10"
         >
           <span className="text-[9px] tracking-[0.3em] uppercase opacity-70">MADE IN OMAN</span>
-          
+
           <div className="w-1.5 h-1.5 border-[0.5px] border-[#B08A5A] rotate-45" />
-          
+
           <div className="flex flex-col items-center gap-4">
             <span className="text-[8px] tracking-[0.5em] uppercase opacity-70 [writing-mode:vertical-rl] rotate-180">SCROLL</span>
             <div className="w-[0.5px] h-16 bg-[#B08A5A]/40 relative">
@@ -83,14 +83,14 @@ export function HeroSection() {
         </div>
 
         {/* Content overlay */}
-        <div className="relative z-10 h-full flex flex-col justify-center p-8 lg:p-16 py-24 lg:py-32">
+        <div className="relative z-10 h-full flex flex-col justify-center p-6 sm:p-8 md:p-12 lg:p-16 pt-24 sm:pt-28 pb-32">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="max-w-2xl"
           >
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl text-foreground leading-[1.1] mb-6 text-balance">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl text-foreground leading-[1.1] mb-6 text-balance">
               Timeless Elegance,
               <br />
               Rooted in Omani Heritage

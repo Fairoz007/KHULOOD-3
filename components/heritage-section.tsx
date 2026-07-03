@@ -29,7 +29,7 @@ export function HeritageSection() {
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-10 w-full px-6 lg:px-8 py-24 lg:py-32">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -38,7 +38,7 @@ export function HeritageSection() {
             transition={{ duration: 0.8 }}
           >
             <span className="text-xs tracking-[0.4em] uppercase text-background/70 mb-6 block">About KHULOOD</span>
-            <h2 className="font-serif text-4xl lg:text-6xl text-background mb-8 leading-[1.15] text-balance">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-6xl text-background mb-8 leading-[1.15] text-balance">
               Crafted with Heritage.
               <br />
               Designed for Today.
@@ -55,7 +55,7 @@ export function HeritageSection() {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-12 lg:gap-16">
+            <div className="flex flex-wrap justify-center gap-8 sm:gap-12 lg:gap-16">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ export function HeritageSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="max-w-[200px]"
               >
-                <span className="font-serif text-2xl lg:text-3xl text-background block mb-2">Handcrafted</span>
+                <span className="font-serif text-xl sm:text-2xl lg:text-3xl text-background block mb-2">Handcrafted</span>
                 <span className="text-xs tracking-[0.2em] uppercase text-background/60">Excellence</span>
               </motion.div>
               <motion.div
@@ -73,7 +73,7 @@ export function HeritageSection() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="max-w-[200px]"
               >
-                <span className="font-serif text-2xl lg:text-3xl text-background block mb-2">Premium</span>
+                <span className="font-serif text-xl sm:text-2xl lg:text-3xl text-background block mb-2">Premium</span>
                 <span className="text-xs tracking-[0.2em] uppercase text-background/60">Materials</span>
               </motion.div>
               <motion.div
@@ -83,7 +83,7 @@ export function HeritageSection() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="max-w-[200px]"
               >
-                <span className="font-serif text-2xl lg:text-3xl text-background block mb-2">Omani</span>
+                <span className="font-serif text-xl sm:text-2xl lg:text-3xl text-background block mb-2">Omani</span>
                 <span className="text-xs tracking-[0.2em] uppercase text-background/60">Heritage</span>
               </motion.div>
               <motion.div
@@ -93,7 +93,7 @@ export function HeritageSection() {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="max-w-[200px]"
               >
-                <span className="font-serif text-2xl lg:text-3xl text-background block mb-2">Bespoke</span>
+                <span className="font-serif text-xl sm:text-2xl lg:text-3xl text-background block mb-2">Bespoke</span>
                 <span className="text-xs tracking-[0.2em] uppercase text-background/60">Craftsmanship</span>
               </motion.div>
             </div>

@@ -91,12 +91,12 @@ export default function ShopPage() {
       {/* Category Navigation */}
       <section className="sticky top-[64px] lg:top-[80px] z-40 bg-background/95 backdrop-blur-md border-b border-border/50 transition-all duration-300">
         <div className="max-w-[1500px] mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <nav className="flex flex-wrap items-center justify-center md:justify-start gap-8">
+          <nav className="flex overflow-x-auto hide-scrollbar items-center justify-start md:flex-wrap md:justify-start gap-8 w-full md:w-auto pb-2 md:pb-0 snap-x">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className="relative text-[11px] tracking-[0.15em] uppercase transition-colors duration-300 py-1 group"
+                className="relative text-[11px] tracking-[0.15em] uppercase transition-colors duration-300 py-1 group whitespace-nowrap snap-start"
               >
                 <span className={activeCategory === category ? "text-foreground font-medium" : "text-muted-foreground group-hover:text-foreground"}>
                   {category}
@@ -187,7 +187,7 @@ export default function ShopPage() {
                     {isEditorialBreak && (
                       <div className="col-span-full my-24 w-full">
                         <section className="w-full bg-[#EEE7DD] flex flex-col md:flex-row overflow-hidden">
-                          <div className="flex-1 relative min-h-[500px]">
+                          <div className="flex-1 relative min-h-[350px] md:min-h-[500px]">
                              <Image
                                 src="/shop-hero-luxury-fashion-collection.jpg"
                                 alt="Editorial Break"
@@ -330,7 +330,7 @@ export default function ShopPage() {
             <div className="w-12 h-[1px] bg-primary mx-auto" />
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {[
               { text: "The delivery process was so smooth and the abaya I recieved was stunning. The whole experience exceeded my expectations.", name: "Aisha M.", country: "UAE" },
               { text: "Unmatched and impeccably crafted tailoring. Absolutely love every drop! The quality of the fabric is exceptional.", name: "Fatima A.", country: "Oman" },
