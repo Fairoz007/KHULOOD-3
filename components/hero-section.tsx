@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-start overflow-hidden">
+    <section className="relative min-h-[100svh] w-full flex flex-col overflow-hidden">
       
       {/* Full-width Background Image */}
       <div className="absolute inset-0 z-0">
@@ -20,11 +20,11 @@ export function HeroSection() {
           className="object-cover object-[70%_center] md:object-center"
         />
         {/* Soft gradient overlay to ensure text readability on all screens */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F0EBE1] via-[#F0EBE1]/70 to-transparent lg:w-[55%]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F0EBE1] via-[#F0EBE1]/80 to-transparent lg:w-[60%]" />
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-20 xl:px-24 pt-24 pb-20 flex flex-col justify-center h-full">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-20 xl:px-24 pt-32 md:pt-40 pb-36 md:pb-24 flex flex-col my-auto">
         
         <div className="max-w-[500px]">
           {/* Brand Logo & Info */}
@@ -93,7 +93,7 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-12 left-6 sm:left-12 lg:left-20 xl:left-24 z-10"
+        className="absolute bottom-8 md:bottom-12 left-6 sm:left-12 lg:left-20 xl:left-24 z-10"
       >
         <div className="inline-flex flex-col items-center">
           <span className="text-[9px] tracking-[0.3em] uppercase text-[#B08A5A] font-medium mb-4">MADE IN OMAN</span>
