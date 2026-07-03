@@ -91,7 +91,7 @@ export function PremiumFooter() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-[#B08A5A]/30 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-xs text-[#F8F6F3]/50 font-light tracking-wide text-center md:text-left">
-            © 2025 KHULOOD
+            © 2026 KHULOOD
           </div>
 
           <div className="w-5 h-5 border border-[#B08A5A] rotate-45 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">

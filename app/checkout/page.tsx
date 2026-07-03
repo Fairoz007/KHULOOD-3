@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { ChevronLeft, Lock } from "lucide-react"
 import { useCart } from "@/hooks/use-cart"
 import {
@@ -34,8 +35,18 @@ export default function CheckoutPage() {
               <ChevronLeft className="h-4 w-4" />
               Continue Shopping
             </Link>
-            <Link href="/" className="font-serif text-xl lg:text-2xl tracking-[0.3em] uppercase">
-              Khulood
+            <Link
+              href="/"
+              className="flex items-center"
+            >
+              <Image 
+                src="/logo.webp" 
+                alt="KHULOOD" 
+                width={140} 
+                height={40} 
+                className="h-4 sm:h-5 md:h-6 lg:h-7 w-auto object-contain transition-all duration-500"
+                priority
+              />
             </Link>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Lock className="h-4 w-4" />

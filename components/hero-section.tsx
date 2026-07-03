@@ -3,131 +3,104 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex">
-      {/* Left content - Premium Sidebar */}
-      <div className="hidden lg:flex flex-col justify-between items-center w-[22%] bg-[#0B0B0B] text-[#B08A5A] py-20 px-6 relative z-20 shadow-2xl">
-
-        {/* Soft linen texture overlay (simulated with CSS blend modes) */}
-        <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
-
-        {/* TOP */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
-          className="flex flex-col items-center gap-8 relative z-10"
-        >
-          {/* Geometric Omani Emblem */}
-          <div className="w-5 h-5 border-[0.5px] border-[#B08A5A] rotate-45 flex items-center justify-center">
-            <div className="w-1.5 h-1.5 bg-[#B08A5A] rotate-45" />
-          </div>
-          {/* Vertical bronze line */}
-          <div className="w-[0.5px] h-[120px] bg-gradient-to-b from-[#B08A5A]/80 to-transparent" />
-        </motion.div>
-
-        {/* CENTER */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 1, ease: "easeOut" }}
-          className="flex flex-col items-center text-center gap-5 relative z-10"
-        >
-          <span className="text-[9px] tracking-[0.4em] uppercase opacity-70">EST. 2020</span>
-          <h2 className="font-serif text-2xl lg:text-3xl tracking-[0.2em] font-light">KHULOOD</h2>
-          <div className="w-6 h-[0.5px] bg-[#B08A5A]/60 my-2" />
-          <p className="text-[9px] leading-[2.2] tracking-[0.15em] uppercase opacity-70 max-w-[160px]">
-            Crafted in Oman.
-            <br />
-            Designed for Timeless Elegance.
-          </p>
-        </motion.div>
-
-        {/* BOTTOM */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center gap-10 relative z-10"
-        >
-          <span className="text-[9px] tracking-[0.3em] uppercase opacity-70">MADE IN OMAN</span>
-
-          <div className="w-1.5 h-1.5 border-[0.5px] border-[#B08A5A] rotate-45" />
-
-          <div className="flex flex-col items-center gap-4">
-            <span className="text-[8px] tracking-[0.5em] uppercase opacity-70 [writing-mode:vertical-rl] rotate-180">SCROLL</span>
-            <div className="w-[0.5px] h-16 bg-[#B08A5A]/40 relative">
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 border-b-[0.5px] border-r-[0.5px] border-[#B08A5A] rotate-45" />
-            </div>
-          </div>
-        </motion.div>
+    <section className="relative min-h-screen w-full flex items-center justify-start overflow-hidden">
+      
+      {/* Full-width Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/hero-bg-new.png"
+          alt="KHULOOD Luxury Fashion"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[70%_center] md:object-center"
+        />
+        {/* Soft gradient overlay to ensure text readability on all screens */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F0EBE1] via-[#F0EBE1]/70 to-transparent lg:w-[55%]" />
       </div>
 
-      {/* Right content - 80% */}
-      <div className="flex-1 relative">
-        {/* Background image - converted to Next.js Image with priority for LCP */}
-        <div className="absolute inset-0">
-          <Image
-            src="/hero_abaya_1782932411356.png"
-            alt="Elegant fashion model in dark clothing"
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 78vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-foreground/20" />
-        </div>
-
-        {/* Content overlay */}
-        <div className="relative z-10 h-full flex flex-col justify-center p-6 sm:p-8 md:p-12 lg:p-16 pt-24 sm:pt-28 pb-32">
+      {/* Content Container */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-20 xl:px-24 pt-24 pb-20 flex flex-col justify-center h-full">
+        
+        <div className="max-w-[500px]">
+          {/* Brand Logo & Info */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="max-w-2xl"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-start mb-12"
           >
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl text-foreground leading-[1.1] mb-6 text-balance">
-              Timeless Elegance,
-              <br />
-              Rooted in Omani Heritage
-            </h1>
-            <p className="text-foreground/80 text-base lg:text-lg tracking-wide mb-10 max-w-md leading-relaxed">
-              Discover handcrafted abayas and contemporary fashion designed to celebrate tradition through modern luxury. Every KHULOOD creation is thoughtfully designed and meticulously handmade in our atelier in the Sultanate of Oman.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Link href="/shop">
-                  <Button
-                    size="lg"
-                    className="bg-background text-foreground hover:bg-background/90 px-8 py-6 text-xs lg:text-sm tracking-[0.2em] uppercase group w-full sm:w-auto"
-                  >
-                    Explore Collection
-                    <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
-              </motion.div>
+            {/* Elegant Floral Icon approximation */}
+            <div className="text-[#B08A5A] mb-4">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C12 2 15 5.5 15 8.5C15 10.1569 13.6569 11.5 12 11.5C10.3431 11.5 9 10.1569 9 8.5C9 5.5 12 2 12 2Z" fill="currentColor"/>
+                <path d="M12 22C12 22 15 18.5 15 15.5C15 13.8431 13.6569 12.5 12 12.5C10.3431 12.5 9 13.8431 9 15.5C9 18.5 12 22 12 22Z" fill="currentColor"/>
+                <path d="M22 12C22 12 18.5 15 15.5 15C13.8431 15 12.5 13.6569 12.5 12C12.5 10.3431 13.8431 9 15.5 9C18.5 9 22 12 22 12Z" fill="currentColor"/>
+                <path d="M2 12C2 12 5.5 15 8.5 15C10.1569 15 11.5 13.8431 11.5 12C11.5 10.3431 10.1569 9 8.5 9C5.5 9 2 12 2 12Z" fill="currentColor"/>
+              </svg>
             </div>
+            <span className="text-[8px] tracking-[0.3em] uppercase text-[#B08A5A] mb-2 font-medium">EST. 2020</span>
+            <span className="text-sm tracking-[0.35em] uppercase text-[#B08A5A] font-medium">KHULOOD</span>
+            <div className="w-6 h-[1px] bg-[#B08A5A] mt-5" />
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            className="font-serif text-[46px] sm:text-5xl md:text-6xl lg:text-[68px] text-[#1C1C1C] leading-[1.1] mb-8 tracking-tight"
+          >
+            Timeless<br />
+            Elegance,<br />
+            Rooted in Omani<br />
+            Heritage
+          </motion.h1>
+
+          {/* Paragraph */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+            className="text-[#4A4A4A] text-sm md:text-[15px] font-light tracking-wide mb-12 leading-[1.8] max-w-[420px]"
+          >
+            Discover handcrafted abayas and contemporary fashion designed to celebrate tradition through modern luxury.<br />
+            Every KHULOOD creation is thoughtfully designed and meticulously handmade in our atelier in the Sultanate of Oman.
+          </motion.p>
+
+          {/* Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+          >
+            <Link href="/shop">
+              <button className="flex items-center justify-center gap-4 bg-[#B08A5A] hover:bg-[#9D7A4D] transition-colors duration-300 text-white px-10 py-[18px] text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase">
+                Explore Collection
+                <ArrowRight className="h-3.5 w-3.5" />
+              </button>
+            </Link>
           </motion.div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-            className="w-[1px] h-12 bg-background/50"
-          />
-        </motion.div>
       </div>
+
+      {/* Made in Oman Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="absolute bottom-12 left-6 sm:left-12 lg:left-20 xl:left-24 z-10"
+      >
+        <div className="inline-flex flex-col items-center">
+          <span className="text-[9px] tracking-[0.3em] uppercase text-[#B08A5A] font-medium mb-4">MADE IN OMAN</span>
+          <div className="w-1.5 h-1.5 border-[1px] border-[#B08A5A] rotate-45" />
+        </div>
+      </motion.div>
+
     </section>
   )
 }
