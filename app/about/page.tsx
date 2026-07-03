@@ -71,7 +71,7 @@ export default function AboutPage() {
             <div className="flex gap-8 items-center pt-4">
               <div className="relative w-[140px] h-[180px] rounded-[24px] overflow-hidden flex-shrink-0">
                 <Image 
-                  src="/artisan_quote.png"
+                  src="/artisan-hands-crafting-leather-luxury-goods.jpg"
                   alt="Artisan embroidery"
                   fill
                   className="object-cover"
