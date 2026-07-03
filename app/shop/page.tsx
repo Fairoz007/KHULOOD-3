@@ -61,8 +61,6 @@ export default function ShopPage() {
           </motion.div>
         </div>
         <div className="flex-1 relative min-h-[400px] md:min-h-[600px] md:h-[70vh] w-full">
-          {/* Museum-inspired styling with warm architectural background */}
-          <div className="absolute inset-0 bg-[#E2DCD3] z-0" />
           <motion.div 
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
