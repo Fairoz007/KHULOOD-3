@@ -69,6 +69,14 @@ export default function AboutPage() {
 
             {/* Quote Block */}
             <div className="flex gap-8 items-center pt-4">
+              <div className="relative w-[140px] h-[180px] rounded-[24px] overflow-hidden flex-shrink-0">
+                <Image 
+                  src="/artisan_quote.png"
+                  alt="Artisan embroidery"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="flex gap-6 h-full items-center">
                 <div className="w-[2px] h-[120px] bg-[#B08A5A] flex-shrink-0 rounded-full" />
                 <div>
