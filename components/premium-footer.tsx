@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Instagram, Facebook, Twitter, Mail } from "lucide-react"
+import { Instagram, Mail } from "lucide-react"
 
 export function PremiumFooter() {
   const footerLinks = {
@@ -32,14 +32,8 @@ export function PremiumFooter() {
               Subscribe and be the first to know about new products, special offers, and more.
             </p>
             <div className="flex items-center gap-6 text-[#B08A5A]">
-              <a href="https://instagram.com/khulood" target="_blank" rel="noopener noreferrer" className="hover:text-[#F8F6F3] transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/khuloodofficial/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-[#F8F6F3] transition-colors" aria-label="Instagram">
                 <Instagram className="h-5 w-5 stroke-[1.5]" />
-              </a>
-              <a href="https://facebook.com/khulood" target="_blank" rel="noopener noreferrer" className="hover:text-[#F8F6F3] transition-colors" aria-label="Facebook">
-                <Facebook className="h-5 w-5 stroke-[1.5]" />
-              </a>
-              <a href="https://twitter.com/khulood" target="_blank" rel="noopener noreferrer" className="hover:text-[#F8F6F3] transition-colors" aria-label="Twitter">
-                <Twitter className="h-5 w-5 stroke-[1.5]" />
               </a>
               <a href="mailto:contact@khulood.com" className="hover:text-[#F8F6F3] transition-colors" aria-label="Email">
                 <Mail className="h-5 w-5 stroke-[1.5]" />

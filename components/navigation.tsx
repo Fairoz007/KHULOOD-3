@@ -76,9 +76,7 @@ export function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled || pathname === "/shop" ? "bg-background/95 backdrop-blur-md border-b border-border" : "bg-transparent"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-background/95 backdrop-blur-md border-b border-border"
       >
         <nav className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex h-16 lg:h-20 items-center justify-between">
@@ -101,7 +99,7 @@ export function Navigation() {
                   alt="KHULOOD" 
                   width={140} 
                   height={40} 
-                  className="h-8 lg:h-10 w-auto object-contain transition-all duration-500"
+                  className="h-5 lg:h-6 w-auto object-contain transition-all duration-500"
                   priority
                 />
               </Link>
@@ -151,11 +149,7 @@ export function Navigation() {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Search..."
-                        className={`w-full bg-transparent border-b text-sm py-1 pr-2 outline-none transition-colors duration-500 ${
-                          isScrolled
-                            ? "border-foreground/30 text-foreground placeholder:text-foreground/50"
-                            : "border-white/30 text-white placeholder:text-white/50"
-                        }`}
+                        className="w-full bg-transparent border-b text-sm py-1 pr-2 outline-none transition-colors duration-500 border-foreground/30 text-foreground placeholder:text-foreground/50"
                       />
                     </motion.div>
                   )}
