@@ -11,27 +11,10 @@ interface MiniCartProps {
   onClose: () => void
 }
 
-const cartItems = [
-  {
-    id: "1",
-    name: "The Atelier Coat",
-    price: 2450,
-    quantity: 1,
-    size: "M",
-    image: "/luxury-wool-coat-product-image.jpg",
-  },
-  {
-    id: "2",
-    name: "Cashmere Knit",
-    price: 890,
-    quantity: 1,
-    size: "S",
-    image: "/placeholder.svg?height=120&width=100",
-  },
-]
+import { useCart } from "@/hooks/use-cart"
 
 export function MiniCart({ isOpen, onClose }: MiniCartProps) {
-  const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
+  const { items, cartTotal, updateQuantity, removeItem } = useCart()
 
   return (
     <AnimatePresence>
@@ -70,60 +53,86 @@ export function MiniCart({ isOpen, onClose }: MiniCartProps) {
             {/* Items */}
             <div className="flex-1 overflow-y-auto p-6">
               <div className="space-y-6">
-                {cartItems.map((item, index) => (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="flex gap-4"
-                  >
-                    <div className="w-24 h-30 bg-muted flex-shrink-0 relative">
-                      <Image
-                        src={item.image || "/placeholder.svg"}
-                        alt={item.name}
-                        fill
-                        sizes="96px"
-                        loading="lazy"
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-serif text-sm mb-1">{item.name}</h3>
-                      <p className="text-xs text-muted-foreground mb-3">Size: {item.size}</p>
-                      <div className="flex items-center gap-3">
-                        <button className="p-1 hover:opacity-60 transition-opacity">
-                          <Minus className="h-3 w-3" />
-                        </button>
-                        <span className="text-sm w-6 text-center">{item.quantity}</span>
-                        <button className="p-1 hover:opacity-60 transition-opacity">
-                          <Plus className="h-3 w-3" />
-                        </button>
+                {items.length === 0 ? (
+                  <div className="flex flex-col items-center justify-center h-full text-center space-y-4 py-12">
+                    <p className="text-muted-foreground">Your shopping bag is empty.</p>
+                  </div>
+                ) : (
+                  items.map((item, index) => (
+                    <motion.div
+                      key={item.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      className="flex gap-4 group"
+                    >
+                      <div className="w-24 h-30 bg-muted flex-shrink-0 relative">
+                        <Image
+                          src={item.image || "/placeholder.svg"}
+                          alt={item.name}
+                          fill
+                          sizes="96px"
+                          loading="lazy"
+                          className="object-cover"
+                        />
                       </div>
-                    </div>
-                    <div className="text-sm">${item.price.toLocaleString()}</div>
-                  </motion.div>
-                ))}
+                      <div className="flex-1">
+                        <div className="flex justify-between items-start">
+                          <h3 className="font-serif text-sm mb-1">{item.name}</h3>
+                          <button
+                            onClick={() => removeItem(item.id)}
+                            className="text-muted-foreground hover:text-foreground transition-colors p-1"
+                            aria-label="Remove item"
+                          >
+                            <X className="h-3 w-3" />
+                          </button>
+                        </div>
+                        <p className="text-xs text-muted-foreground mb-1">
+                          {item.color && <span className="mr-2">Color: {item.color}</span>}
+                          {item.size && <span>Size: {item.size}</span>}
+                        </p>
+                        <div className="flex items-center gap-3 mt-3">
+                          <button
+                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                            className="p-1 hover:opacity-60 transition-opacity"
+                          >
+                            <Minus className="h-3 w-3" />
+                          </button>
+                          <span className="text-sm w-6 text-center">{item.quantity}</span>
+                          <button
+                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                            className="p-1 hover:opacity-60 transition-opacity"
+                          >
+                            <Plus className="h-3 w-3" />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="text-sm">${(item.price * item.quantity).toLocaleString()}</div>
+                    </motion.div>
+                  ))
+                )}
               </div>
             </div>
 
             {/* Footer */}
-            <div className="border-t border-border p-6 space-y-4">
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Subtotal</span>
-                <span>${subtotal.toLocaleString()}</span>
+            {items.length > 0 && (
+              <div className="border-t border-border p-6 space-y-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Subtotal</span>
+                  <span>${cartTotal.toLocaleString()}</span>
+                </div>
+                <p className="text-xs text-muted-foreground">Shipping and taxes calculated at checkout</p>
+                <Link href="/checkout" onClick={onClose}>
+                  <Button className="w-full py-6 text-sm tracking-[0.2em] uppercase">Proceed to Checkout</Button>
+                </Link>
+                <button
+                  onClick={onClose}
+                  className="w-full text-center text-sm tracking-wide underline underline-offset-4 hover:no-underline transition-all"
+                >
+                  Continue Shopping
+                </button>
               </div>
-              <p className="text-xs text-muted-foreground">Shipping and taxes calculated at checkout</p>
-              <Link href="/checkout" onClick={onClose}>
-                <Button className="w-full py-6 text-sm tracking-[0.2em] uppercase">Proceed to Checkout</Button>
-              </Link>
-              <button
-                onClick={onClose}
-                className="w-full text-center text-sm tracking-wide underline underline-offset-4 hover:no-underline transition-all"
-              >
-                Continue Shopping
-              </button>
-            </div>
+            )}
           </motion.div>
         </>
       )}

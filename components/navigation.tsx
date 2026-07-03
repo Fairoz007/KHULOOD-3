@@ -2,10 +2,12 @@
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Search, ShoppingBag, Menu, X, User } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { MiniCart } from "./mini-cart"
+import { useCart } from "@/hooks/use-cart"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -16,6 +18,7 @@ export function Navigation() {
   const searchInputRef = useRef<HTMLInputElement>(null)
   const searchContainerRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
+  const { cartCount } = useCart()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,13 +62,13 @@ export function Navigation() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/shop", label: "Shop" },
-    { href: "/heritage", label: "About" },
+    { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ]
 
-  const navItemColor = isScrolled ? "text-foreground" : "text-white"
-  const navItemHoverColor = isScrolled ? "text-foreground/60 hover:text-foreground" : "text-white/70 hover:text-white"
-  const iconColor = isScrolled ? "text-foreground" : "text-white"
+  const navItemColor = "text-foreground"
+  const navItemHoverColor = "text-foreground/60 hover:text-foreground"
+  const iconColor = "text-foreground"
 
   return (
     <>
@@ -74,44 +77,64 @@ export function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"
+          isScrolled || pathname === "/shop" ? "bg-background/95 backdrop-blur-md border-b border-border" : "bg-transparent"
         }`}
       >
         <nav className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex h-16 lg:h-20 items-center justify-between">
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`lg:hidden p-2 -ml-2 transition-colors duration-500 ${iconColor}`}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X className="h-5 w-5 stroke-[1.5]" /> : <Menu className="h-5 w-5 stroke-[1.5]" />}
-            </button>
+            <div className="flex items-center gap-4">
+              {/* Mobile menu button */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className={`lg:hidden p-2 -ml-2 transition-colors duration-500 ${iconColor}`}
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? <X className="h-5 w-5 stroke-[1.5]" /> : <Menu className="h-5 w-5 stroke-[1.5]" />}
+              </button>
 
-            {/* Desktop navigation */}
-            <div className="hidden lg:flex items-center gap-12">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-sm tracking-[0.2em] uppercase transition-colors duration-500 ${
-                    pathname === link.href ? navItemColor : navItemHoverColor
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <Link
+                href="/"
+                className="flex items-center"
+              >
+                <Image 
+                  src="/logo.webp" 
+                  alt="KHULOOD" 
+                  width={140} 
+                  height={40} 
+                  className="h-8 lg:h-10 w-auto object-contain transition-all duration-500"
+                  priority
+                />
+              </Link>
             </div>
 
-            <Link
-              href="/"
-              className="absolute left-1/2 -translate-x-1/2 font-serif text-xl lg:text-2xl tracking-[0.3em] uppercase text-foreground"
-            >
-              KHULOOD
-            </Link>
+            <div className="flex items-center gap-6 lg:gap-12">
+              {/* Desktop navigation */}
+              <div className="hidden lg:flex items-center gap-8 lg:gap-12">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`relative py-1 text-sm tracking-[0.2em] uppercase transition-colors duration-500 group ${
+                      pathname === link.href ? navItemColor : navItemHoverColor
+                    }`}
+                  >
+                    {link.label}
+                    {pathname === link.href && (
+                      <motion.div
+                        layoutId="navActiveUnderline"
+                        className="absolute left-0 right-0 bottom-0 h-[1px] bg-primary"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                    {pathname !== link.href && (
+                      <div className="absolute left-0 right-0 bottom-0 h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                    )}
+                  </Link>
+                ))}
+              </div>
 
-            {/* Right icons */}
-            <div className="flex items-center gap-2 lg:gap-4">
+              {/* Right icons */}
+              <div className="flex items-center gap-2 lg:gap-4">
               <div ref={searchContainerRef} className="relative hidden sm:flex items-center">
                 <AnimatePresence>
                   {isSearchOpen && (
@@ -160,15 +183,16 @@ export function Navigation() {
                 className={`p-2 -mr-2 relative transition-colors duration-500 ${iconColor}`}
               >
                 <ShoppingBag className="h-5 w-5 stroke-[1.5]" />
-                <span
-                  className={`absolute -top-1 -right-1 h-4 w-4 text-[10px] flex items-center justify-center transition-colors duration-500 ${
-                    isScrolled ? "bg-foreground text-background" : "bg-white text-foreground"
-                  }`}
-                >
-                  2
-                </span>
+                {cartCount > 0 && (
+                  <span
+                    className={`absolute -top-1 -right-1 h-4 w-4 text-[10px] flex items-center justify-center rounded-full transition-colors duration-500 bg-foreground text-background`}
+                  >
+                    {cartCount}
+                  </span>
+                )}
               </button>
             </div>
+          </div>
           </div>
         </nav>
       </motion.header>

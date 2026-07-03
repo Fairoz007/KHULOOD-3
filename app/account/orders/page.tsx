@@ -9,91 +9,7 @@ import { Navigation } from "@/components/navigation"
 import { PremiumFooter } from "@/components/premium-footer"
 import { AccountSidebar } from "@/components/account-sidebar"
 
-const orders = [
-  {
-    id: "ORD-2026-1847",
-    date: "January 10, 2026",
-    status: "Delivered",
-    statusColor: "text-green-600",
-    total: 3340,
-    items: [
-      {
-        id: "1",
-        name: "The Atelier Coat",
-        price: 2450,
-        size: "M",
-        color: "Midnight",
-        image: "/luxury-wool-coat-product-image.jpg",
-      },
-      {
-        id: "2",
-        name: "Cashmere Knit",
-        price: 890,
-        size: "S",
-        color: "Ivory",
-        image: "/cashmere-sweater-ivory.jpg",
-      },
-    ],
-  },
-  {
-    id: "ORD-2026-1792",
-    date: "December 28, 2025",
-    status: "In Transit",
-    statusColor: "text-amber-600",
-    total: 1890,
-    items: [
-      {
-        id: "3",
-        name: "Silk Evening Dress",
-        price: 1890,
-        size: "S",
-        color: "Pearl",
-        image: "/silk-evening-dress-pearl.jpg",
-      },
-    ],
-  },
-  {
-    id: "ORD-2025-1654",
-    date: "November 15, 2025",
-    status: "Delivered",
-    statusColor: "text-green-600",
-    total: 4250,
-    items: [
-      {
-        id: "4",
-        name: "Tailored Blazer",
-        price: 1650,
-        size: "M",
-        color: "Charcoal",
-        image: "/tailored-blazer-charcoal.jpg",
-      },
-      {
-        id: "5",
-        name: "Wool Trousers",
-        price: 750,
-        size: "M",
-        color: "Charcoal",
-        image: "/wool-trousers-charcoal.jpg",
-      },
-      {
-        id: "6",
-        name: "Silk Blouse",
-        price: 650,
-        size: "S",
-        color: "Ivory",
-        image: "/silk-blouse-ivory.jpg",
-      },
-      {
-        id: "7",
-        name: "Leather Belt",
-        price: 320,
-        size: "M",
-        color: "Black",
-        image: "/leather-belt-black.jpg",
-      },
-    ],
-  },
-]
+const orders: any[] = []
 
 const StatusIcon = ({ status }: { status: string }) => {
   switch (status) {
@@ -107,7 +23,7 @@ const StatusIcon = ({ status }: { status: string }) => {
 }
 
 export default function OrdersPage() {
-  const [expandedOrder, setExpandedOrder] = useState<string | null>(orders[0].id)
+  const [expandedOrder, setExpandedOrder] = useState<string | null>(orders.length > 0 ? orders[0].id : null)
 
   return (
     <>

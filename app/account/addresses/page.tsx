@@ -8,32 +8,7 @@ import { Navigation } from "@/components/navigation"
 import { PremiumFooter } from "@/components/premium-footer"
 import { AccountSidebar } from "@/components/account-sidebar"
 
-const addresses = [
-  {
-    id: "1",
-    label: "Home",
-    default: true,
-    name: "Alexandra Sinclair",
-    street: "245 Park Avenue, Apt 42B",
-    city: "New York",
-    state: "NY",
-    zip: "10167",
-    country: "United States",
-    phone: "+1 (555) 123-4567",
-  },
-  {
-    id: "2",
-    label: "Office",
-    default: false,
-    name: "Alexandra Sinclair",
-    street: "1 World Trade Center, 85th Floor",
-    city: "New York",
-    state: "NY",
-    zip: "10007",
-    country: "United States",
-    phone: "+1 (555) 987-6543",
-  },
-]
+const addresses: any[] = []
 
 export default function AddressesPage() {
   const [selectedAddress, setSelectedAddress] = useState<string | null>(null)

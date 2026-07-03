@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Instagram, Facebook, Twitter } from "lucide-react"
+import { Instagram, Facebook, Twitter, Mail } from "lucide-react"
 
 export function PremiumFooter() {
   const footerLinks = {
@@ -12,7 +12,7 @@ export function PremiumFooter() {
       { label: "About", href: "/about" },
       { label: "Contact Us", href: "/contact" },
     ],
-    help: [
+    customerCare: [
       { label: "Shipping & Delivery", href: "/shipping" },
       { label: "Returns & Refunds", href: "/returns" },
       { label: "FAQ", href: "/faq" },
@@ -21,112 +21,91 @@ export function PremiumFooter() {
   }
 
   return (
-    <footer className="bg-foreground text-background">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+    <footer className="bg-[#111111] text-[#F8F6F3] font-sans">
+      <div className="max-w-[1500px] mx-auto px-6 lg:px-12 pt-[100px] pb-[60px]">
         {/* Main footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-24">
           {/* Join our community */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-1"
-          >
-            <h3 className="font-serif text-xl mb-4">Join our community</h3>
-            <p className="text-background/60 text-sm mb-6 leading-relaxed">
+          <div className="lg:col-span-1 pr-8">
+            <h3 className="font-serif text-2xl mb-6 tracking-wide">Join Our Community</h3>
+            <p className="text-[#F8F6F3]/60 text-sm mb-8 leading-relaxed font-light">
               Subscribe and be the first to know about new products, special offers, and more.
             </p>
-            <div className="relative">
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full bg-transparent border-0 border-b border-background/30 py-3 text-sm placeholder:text-background/40 focus:outline-none focus:border-background transition-colors"
-              />
-              <button className="absolute right-0 top-1/2 -translate-y-1/2 text-xs tracking-[0.15em] uppercase hover:opacity-60 transition-opacity">
-                Subscribe
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Quick links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <h4 className="text-xs tracking-[0.2em] uppercase mb-6 text-background/60">Quick Links</h4>
-            <ul className="space-y-3">
-              {footerLinks.quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-background/80 hover:text-background transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Help links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h4 className="text-xs tracking-[0.2em] uppercase mb-6 text-background/60">Help</h4>
-            <ul className="space-y-3">
-              {footerLinks.help.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-background/80 hover:text-background transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* 10% Off */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:col-span-1"
-          >
-            <h3 className="font-serif text-xl mb-4">10 % Off</h3>
-            <p className="text-background/60 text-sm mb-6 leading-relaxed">
-              On Your First Order
-            </p>
-            <div className="relative">
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full bg-transparent border-0 border-b border-background/30 py-3 text-sm placeholder:text-background/40 focus:outline-none focus:border-background transition-colors"
-              />
-              <button className="absolute right-0 top-1/2 -translate-y-1/2 text-xs tracking-[0.15em] uppercase hover:opacity-60 transition-opacity">
-                Claim Now
-              </button>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="pt-8 border-t border-background/20 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-8">
-            <Link href="/" className="font-serif text-lg tracking-[0.3em] uppercase">
-              KHULOOD
-            </Link>
-            <div className="flex items-center gap-4">
-              <a href="https://instagram.com" className="hover:opacity-60 transition-opacity" aria-label="Instagram">
-                <Instagram className="h-4 w-4 stroke-[1.5]" />
+            <div className="flex items-center gap-6 text-[#B08A5A]">
+              <a href="https://instagram.com/khulood" target="_blank" rel="noopener noreferrer" className="hover:text-[#F8F6F3] transition-colors" aria-label="Instagram">
+                <Instagram className="h-5 w-5 stroke-[1.5]" />
+              </a>
+              <a href="https://facebook.com/khulood" target="_blank" rel="noopener noreferrer" className="hover:text-[#F8F6F3] transition-colors" aria-label="Facebook">
+                <Facebook className="h-5 w-5 stroke-[1.5]" />
+              </a>
+              <a href="https://twitter.com/khulood" target="_blank" rel="noopener noreferrer" className="hover:text-[#F8F6F3] transition-colors" aria-label="Twitter">
+                <Twitter className="h-5 w-5 stroke-[1.5]" />
+              </a>
+              <a href="mailto:contact@khulood.com" className="hover:text-[#F8F6F3] transition-colors" aria-label="Email">
+                <Mail className="h-5 w-5 stroke-[1.5]" />
               </a>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-background/50">
-            <span>© 2026 KHULOOD All Rights Reserved.</span>
+          {/* Quick links */}
+          <div>
+            <h4 className="text-xs tracking-[0.2em] font-medium uppercase mb-8 text-[#B08A5A]">Quick Links</h4>
+            <ul className="space-y-4">
+              {footerLinks.quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-sm text-[#F8F6F3] hover:text-[#B08A5A] transition-colors font-light tracking-wide">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Customer Care links */}
+          <div>
+            <h4 className="text-xs tracking-[0.2em] font-medium uppercase mb-8 text-[#B08A5A]">Customer Care</h4>
+            <ul className="space-y-4">
+              {footerLinks.customerCare.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-sm text-[#F8F6F3] hover:text-[#B08A5A] transition-colors font-light tracking-wide">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 10% Off */}
+          <div className="lg:col-span-1">
+            <h3 className="font-serif text-3xl mb-4 tracking-wide text-[#B08A5A]">10% Off First Order</h3>
+            <p className="text-[#F8F6F3]/60 text-sm mb-8 leading-relaxed font-light">
+              Subscribe to our newsletter to receive your discount.
+            </p>
+            <div className="relative group">
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="w-full bg-transparent border-0 border-b border-[#F8F6F3]/30 py-3 text-sm placeholder:text-[#F8F6F3]/40 focus:outline-none focus:border-[#B08A5A] transition-colors pr-24 text-[#F8F6F3]"
+              />
+              <button className="absolute right-0 top-1/2 -translate-y-1/2 text-xs tracking-[0.15em] font-medium uppercase text-[#B08A5A] hover:opacity-70 transition-opacity">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="pt-8 border-t border-[#B08A5A]/30 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-xs text-[#F8F6F3]/50 font-light tracking-wide">
+            © 2025 KHULOOD
+          </div>
+
+          <div className="w-5 h-5 border border-[#B08A5A] rotate-45 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+            <div className="w-2 h-2 bg-[#B08A5A]" />
+          </div>
+
+          <div className="text-xs text-[#F8F6F3]/50 font-light tracking-wide">
+            Designed in Oman • Crafted with Care
           </div>
         </div>
       </div>

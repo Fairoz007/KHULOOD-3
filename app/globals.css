@@ -5,25 +5,25 @@
 
 /* Updated color palette for luxury aesthetic */
 :root {
-  --background: #f9f9f9;
-  --foreground: #0a0a0a;
-  --card: #f9f9f9;
-  --card-foreground: #0a0a0a;
-  --popover: #f9f9f9;
-  --popover-foreground: #0a0a0a;
-  --primary: #0a0a0a;
-  --primary-foreground: #f9f9f9;
-  --secondary: #f9f9f9;
-  --secondary-foreground: #0a0a0a;
-  --muted: #f5f5f5;
+  --background: #f8f6f3; /* Warm Ivory */
+  --foreground: #111111; /* Matte Black */
+  --card: #f8f6f3;
+  --card-foreground: #111111;
+  --popover: #f8f6f3;
+  --popover-foreground: #111111;
+  --primary: #b08a5a; /* Bronze */
+  --primary-foreground: #f8f6f3;
+  --secondary: #eee7dd; /* Soft Beige */
+  --secondary-foreground: #222222; /* Charcoal */
+  --muted: #eee7dd;
   --muted-foreground: #6b7280;
-  --accent: #f5f5f5;
-  --accent-foreground: #0a0a0a;
+  --accent: #eee7dd;
+  --accent-foreground: #111111;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #e5e5e5;
-  --input: #e5e5e5;
-  --ring: #6b7280;
+  --border: #eee7dd;
+  --input: #eee7dd;
+  --ring: #b08a5a;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -31,55 +31,55 @@
   --chart-5: oklch(0.769 0.188 70.08);
   /* Set radius to 0 for sharper modern look */
   --radius: 0rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: #f8f6f3;
+  --sidebar-foreground: #111111;
+  --sidebar-primary: #b08a5a;
+  --sidebar-primary-foreground: #f8f6f3;
+  --sidebar-accent: #eee7dd;
+  --sidebar-accent-foreground: #111111;
+  --sidebar-border: #eee7dd;
+  --sidebar-ring: #b08a5a;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #f9f9f9;
-  --card: #0a0a0a;
-  --card-foreground: #f9f9f9;
-  --popover: #0a0a0a;
-  --popover-foreground: #f9f9f9;
-  --primary: #f9f9f9;
-  --primary-foreground: #0a0a0a;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #f9f9f9;
-  --muted: #1a1a1a;
-  --muted-foreground: #6b7280;
-  --accent: #1a1a1a;
-  --accent-foreground: #f9f9f9;
+  --background: #111111; /* Matte Black */
+  --foreground: #f8f6f3; /* Warm Ivory */
+  --card: #111111;
+  --card-foreground: #f8f6f3;
+  --popover: #111111;
+  --popover-foreground: #f8f6f3;
+  --primary: #b08a5a; /* Bronze */
+  --primary-foreground: #111111;
+  --secondary: #222222; /* Charcoal */
+  --secondary-foreground: #f8f6f3;
+  --muted: #222222;
+  --muted-foreground: #a3a3a3;
+  --accent: #222222;
+  --accent-foreground: #f8f6f3;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: #2a2a2a;
-  --input: #2a2a2a;
-  --ring: #6b7280;
+  --border: #222222;
+  --input: #222222;
+  --ring: #b08a5a;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --sidebar: #111111;
+  --sidebar-foreground: #f8f6f3;
+  --sidebar-primary: #b08a5a;
+  --sidebar-primary-foreground: #111111;
+  --sidebar-accent: #222222;
+  --sidebar-accent-foreground: #f8f6f3;
+  --sidebar-border: #222222;
+  --sidebar-ring: #b08a5a;
 }
 
 @theme inline {
-  /* Added Playfair Display for serif headings and Inter for body */
-  --font-sans: "Inter", "Inter Fallback", sans-serif;
-  --font-serif: "Playfair Display", "Playfair Display Fallback", serif;
+  /* Added luxury typography */
+  --font-sans: "Neue Haas Grotesk", var(--font-inter), "Inter", sans-serif;
+  --font-serif: "Canela", "Editorial New", var(--font-cormorant), "Cormorant Garamond", serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
