@@ -52,7 +52,14 @@ export default function ShopPage() {
             <p className="text-base sm:text-lg text-foreground/70 mb-8 md:mb-12 leading-relaxed font-sans font-light max-w-md">
               Discover handcrafted Omani abayas designed with exceptional craftsmanship, contemporary silhouettes, and timeless elegance.
             </p>
-            <Link href="#collection" className="group relative border border-foreground/30 px-8 py-3 md:px-10 md:py-4 text-xs tracking-[0.2em] uppercase overflow-hidden hover:border-primary transition-colors duration-500 inline-block">
+            <Link 
+              href="#collection" 
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('collection')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="group relative border border-foreground/30 px-8 py-3 md:px-10 md:py-4 text-xs tracking-[0.2em] uppercase overflow-hidden hover:border-primary transition-colors duration-500 inline-block"
+            >
               <span className="relative z-10 text-foreground group-hover:text-primary transition-colors duration-500 flex items-center gap-2">
                 Shop Collection <span className="text-lg">→</span>
               </span>
