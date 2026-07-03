@@ -11,93 +11,131 @@ export function HeritageSection() {
     offset: ["start end", "end start"],
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"])
+  // Subtle parallax for the background
+  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"])
+
+  const FlowerIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <path d="M12 2C12 2 15 5.5 15 8.5C15 10.1569 13.6569 11.5 12 11.5C10.3431 11.5 9 10.1569 9 8.5C9 5.5 12 2 12 2Z" fill="currentColor"/>
+      <path d="M12 22C12 22 15 18.5 15 15.5C15 13.8431 13.6569 12.5 12 12.5C10.3431 12.5 9 13.8431 9 15.5C9 18.5 12 22 12 22Z" fill="currentColor"/>
+      <path d="M22 12C22 12 18.5 15 15.5 15C13.8431 15 12.5 13.6569 12.5 12C12.5 10.3431 13.8431 9 15.5 9C18.5 9 22 12 22 12Z" fill="currentColor"/>
+      <path d="M2 12C2 12 5.5 15 8.5 15C10.1569 15 11.5 13.8431 11.5 12C11.5 10.3431 10.1569 9 8.5 9C5.5 9 2 12 2 12Z" fill="currentColor"/>
+    </svg>
+  )
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Parallax background - converted to Next.js Image with lazy loading */}
-      <motion.div style={{ y }} className="absolute inset-0 -top-20 -bottom-20">
-        <Image
-          src="/heritage-bg.png"
-          alt="Heritage craftsmanship in Italian atelier"
-          fill
-          sizes="100vw"
-          className="object-cover"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-foreground/20" />
-      </motion.div>
+    <section ref={sectionRef} className="relative min-h-screen w-full flex items-center justify-start overflow-hidden bg-[#F7F4EF]">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <motion.div style={{ y }} className="absolute inset-[-10%] w-[120%] h-[120%]">
+          <Image
+            src="/heritage-bg.png"
+            alt="Heritage craftsmanship in KHULOOD atelier"
+            fill
+            sizes="100vw"
+            className="object-cover object-[70%_center] md:object-center"
+            loading="lazy"
+          />
+        </motion.div>
+        {/* Soft gradient overlay for text readability on smaller screens */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F4EFE7] via-[#F4EFE7]/80 to-transparent lg:w-[50%]" />
+      </div>
 
-      {/* Content */}
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
-        <div className="max-w-3xl mx-auto text-center">
+      {/* Content Container */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-20 xl:px-24 py-24 flex flex-col justify-center h-full">
+        
+        <div className="max-w-[620px]">
+          {/* Logo & Section Title */}
           <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-start mb-14"
+          >
+            <div className="text-[#B08A5A] mb-6 w-7 h-7">
+              <FlowerIcon />
+            </div>
+            <span className="text-[11px] tracking-[0.25em] font-medium uppercase text-[#B08A5A]">ABOUT KHULOOD</span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            className="font-serif text-[46px] sm:text-[56px] lg:text-[64px] text-[#1C1C1C] leading-[1.1] mb-8 tracking-tight text-balance"
           >
-            <span className="text-xs tracking-[0.4em] uppercase text-background/70 mb-6 block">About KHULOOD</span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-6xl text-background mb-8 leading-[1.15] text-balance">
-              Crafted with Heritage.
-              <br />
-              Designed for Today.
-            </h2>
-            <div className="text-background/80 text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto mb-12 space-y-6">
-              <p>
-                KHULOOD is a contemporary luxury fashion house inspired by the rich culture and artistry of Oman. Our collections blend traditional craftsmanship with modern silhouettes, creating elegant pieces that are both timeless and distinctive.
-              </p>
-              <p>
-                Each garment is handcrafted by skilled artisans using carefully selected premium fabrics and refined finishing techniques, ensuring every piece reflects exceptional quality and sophistication.
-              </p>
-              <p>
-                Whether created for everyday elegance or life's most memorable occasions, every KHULOOD design is made to become part of your story.
-              </p>
+            Crafted with Heritage.<br />
+            Designed for Today.
+          </motion.h2>
+
+          {/* Paragraph */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+            className="text-[#4A4A4A] text-[15px] md:text-base font-light tracking-wide mb-16 leading-[1.9] pr-4 sm:pr-0"
+          >
+            KHULOOD is a contemporary luxury fashion house inspired by the rich culture and artistry of Oman. Our collections blend traditional craftsmanship with modern silhouettes, creating elegant pieces that are both timeless and distinctive.
+          </motion.p>
+
+          {/* Bottom Features */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+            className="flex flex-wrap sm:flex-nowrap gap-8 sm:gap-6 md:gap-10 items-center justify-between max-w-[540px]"
+          >
+            {/* Feature 1 */}
+            <div className="flex flex-col items-center text-center">
+              <div className="text-[#B08A5A] mb-4 w-6 h-6">
+                <FlowerIcon />
+              </div>
+              <span className="text-[11px] font-medium tracking-[0.1em] uppercase text-[#B08A5A] mb-1.5">HANDCRAFTED</span>
+              <span className="text-[9px] tracking-[0.2em] uppercase text-[#B08A5A]/60">EXCELLENCE</span>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-8 sm:gap-12 lg:gap-16">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="max-w-[200px]"
-              >
-                <span className="font-serif text-xl sm:text-2xl lg:text-3xl text-background block mb-2">Handcrafted</span>
-                <span className="text-xs tracking-[0.2em] uppercase text-background/60">Excellence</span>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="max-w-[200px]"
-              >
-                <span className="font-serif text-xl sm:text-2xl lg:text-3xl text-background block mb-2">Premium</span>
-                <span className="text-xs tracking-[0.2em] uppercase text-background/60">Materials</span>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="max-w-[200px]"
-              >
-                <span className="font-serif text-xl sm:text-2xl lg:text-3xl text-background block mb-2">Omani</span>
-                <span className="text-xs tracking-[0.2em] uppercase text-background/60">Heritage</span>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="max-w-[200px]"
-              >
-                <span className="font-serif text-xl sm:text-2xl lg:text-3xl text-background block mb-2">Bespoke</span>
-                <span className="text-xs tracking-[0.2em] uppercase text-background/60">Craftsmanship</span>
-              </motion.div>
+            {/* Divider */}
+            <div className="w-[1px] h-12 bg-[#B08A5A]/20 hidden sm:block" />
+
+            {/* Feature 2 */}
+            <div className="flex flex-col items-center text-center">
+              <div className="text-[#B08A5A] mb-4 w-6 h-6">
+                <FlowerIcon />
+              </div>
+              <span className="text-[11px] font-medium tracking-[0.1em] uppercase text-[#B08A5A] mb-1.5">PREMIUM</span>
+              <span className="text-[9px] tracking-[0.2em] uppercase text-[#B08A5A]/60">MATERIALS</span>
+            </div>
+
+            {/* Divider */}
+            <div className="w-[1px] h-12 bg-[#B08A5A]/20 hidden sm:block" />
+
+            {/* Feature 3 */}
+            <div className="flex flex-col items-center text-center">
+              <div className="text-[#B08A5A] mb-4 w-6 h-6">
+                <FlowerIcon />
+              </div>
+              <span className="text-[11px] font-medium tracking-[0.1em] uppercase text-[#B08A5A] mb-1.5">OMANI</span>
+              <span className="text-[9px] tracking-[0.2em] uppercase text-[#B08A5A]/60">HERITAGE</span>
+            </div>
+
+            {/* Divider */}
+            <div className="w-[1px] h-12 bg-[#B08A5A]/20 hidden sm:block" />
+
+            {/* Feature 4 */}
+            <div className="flex flex-col items-center text-center">
+              <div className="text-[#B08A5A] mb-4 w-6 h-6">
+                <FlowerIcon />
+              </div>
+              <span className="text-[11px] font-medium tracking-[0.1em] uppercase text-[#B08A5A] mb-1.5">BESPOKE</span>
+              <span className="text-[9px] tracking-[0.2em] uppercase text-[#B08A5A]/60">CRAFTSMANSHIP</span>
             </div>
           </motion.div>
+          
         </div>
       </div>
     </section>

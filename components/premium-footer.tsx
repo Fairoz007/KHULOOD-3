@@ -69,19 +69,19 @@ export function PremiumFooter() {
             </ul>
           </div>
 
-          {/* 10% Off */}
+          {/* Newsletter */}
           <div className="lg:col-span-1 text-center lg:text-left">
-            <h3 className="font-serif text-3xl mb-4 tracking-wide text-[#B08A5A]">10% Off First Order</h3>
-            <p className="text-[#F8F6F3]/60 text-sm mb-8 leading-relaxed font-light">
-              Subscribe to our newsletter to receive your discount.
+            <h3 className="font-serif text-2xl lg:text-3xl mb-5 tracking-wide text-[#B08A5A] font-light">From Our Atelier to You</h3>
+            <p className="text-[#F8F6F3]/70 text-sm mb-10 leading-[1.8] font-light tracking-wide">
+              Subscribe to receive exclusive collection launches, artisan stories, behind-the-scenes craftsmanship, and the latest updates from KHULOOD.
             </p>
-            <div className="relative group">
+            <div className="relative group mt-2">
               <input
                 type="email"
-                placeholder="Email Address"
-                className="w-full bg-transparent border-0 border-b border-[#F8F6F3]/30 py-3 text-sm placeholder:text-[#F8F6F3]/40 focus:outline-none focus:border-[#B08A5A] transition-colors pr-24 text-[#F8F6F3]"
+                placeholder="Enter your email address"
+                className="w-full bg-transparent border-0 border-b border-[#F8F6F3]/20 py-3 text-sm placeholder:text-[#F8F6F3]/30 placeholder:tracking-wide focus:outline-none focus:border-[#B08A5A] transition-all duration-500 pr-28 text-[#F8F6F3]"
               />
-              <button className="absolute right-0 top-1/2 -translate-y-1/2 text-xs tracking-[0.15em] font-medium uppercase text-[#B08A5A] hover:opacity-70 transition-opacity">
+              <button className="absolute right-0 top-1/2 -translate-y-1/2 text-[10px] tracking-[0.2em] font-medium uppercase text-[#B08A5A] hover:text-[#F8F6F3] transition-colors duration-300">
                 Subscribe
               </button>
             </div>
